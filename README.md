@@ -37,3 +37,19 @@ All the AWS Glue jobs use only visual nodes, e.g., JOINs and Filters, with very 
 - Join the Step Trainer Records (`step_trainer_trusted` table) with the associated accelerometer reading data (from `accelerometer_trusted` table) based on the timestamp.
 - Only include records for customers who have agreed to share their data (based on the `customer_curated` table).
 - Store the resulting data in the Curated Zone as a Glue Table called `machine_learning_curated`.
+
+ All the bonus req'ts (PII and TS-based filtering) are included.
+
+## Files 
+   699 accelerometer_landing.sql
+  3403 accelerometer_landing_to_trusted_zone.py
+224479 customer_landing.png     => holes
+   874 customer_landing.sql
+  1763 customer_landing_to_trusted.py
+231047 customer_trusted.png    => no holes
+  3271 customer_trusted_to_curated.py
+  3131 customer_trusted_to_curated_dedup_200x_compressed.py => shrunked file
+  3139 machine_learning_curated.py
+ 14163 machine_learning_curated_noPII.py  => PII-ready (GDPR, California privacy etc.)
+  3221 trainer_landing_to_trusted.py
+ 
